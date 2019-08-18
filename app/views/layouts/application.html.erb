@@ -30,6 +30,11 @@
       <br class="clear" />
          
     <div class="container">
+      <% if flash[:error].present? %>
+    <div class="col-10 offset-1 alert alert-danger">
+      <%= flash[:error].html_safe %>
+    </div>
+  <% end %>
       <%= yield %>
     </div>
 
@@ -39,7 +44,7 @@
           <div class="col-6">
         <%= link_to "This isn't enough, I need more", root_path, class: 'next-quote' %>
       </div>
-      <div class="col-6 footer-blurb">
+      <div class="col-6 footer-blur<%= flash[:error] %>b">
         Proudly hacked by <a href="https://bsells.netlify.com/">Bobby Sells</a><br />
          <div class="col-6 footer-blurb">
         Want to build your own Splurty Web App - <a href="https://online.bootcampspot.com">Learn how to code here</a>
